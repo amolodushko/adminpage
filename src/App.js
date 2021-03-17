@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import styled from "styled-components";
+import Navigation from "./components/Navigation";
+import Map from "./components/Map";
+import Sidebar from "./components/Sidebar";
+import AppContext from "./utils/AppContext";
+
+const Wrapper = styled.div`
+  display: flex;  
+  flex: 1;
+  flex-direction: row;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [barsMode, setBarsMode] = useState(true);
+    return <AppContext.Provider value={{barsMode, setBarsMode}}> <Wrapper>
+        <Navigation/>
+        <Map/>
+        <Sidebar/>
+    </Wrapper>
+    </AppContext.Provider>
 }
 
 export default App;
