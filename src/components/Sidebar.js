@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     @media (max-width: 600px) {
         width: auto;
         flex-direction: column;
-        max-height: ${({collapsed}) => !!collapsed ? 33 : 360}px;
+        height: ${({collapsed}) => !!collapsed ? 68 : 360}px;
     }     
 `;
 
