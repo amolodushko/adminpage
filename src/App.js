@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import Navigation from "./components/Navigation";
 import Map from "./components/Map";
 import Sidebar from "./components/Sidebar";
-import AppContext from "./utils/AppContext";
+import withAppContext from "./hoc/withAppContext";
+import compose from "./utils/compose";
 
 const Wrapper = styled.div`
   display: flex;  
@@ -15,14 +16,10 @@ const Wrapper = styled.div`
   }
 `;
 
-function App() {
-    const [barsMode, setBarsMode] = useState(true);
-    return <AppContext.Provider value={{barsMode, setBarsMode}}> <Wrapper>
-        <Navigation/>
-        <Map/>
-        <Sidebar/>
-    </Wrapper>
-    </AppContext.Provider>
-}
+const App = () => <Wrapper>
+    <Navigation/>
+    <Map/>
+    <Sidebar/>
+</Wrapper>;
 
-export default App;
+export default compose(withAppContext)(App);
