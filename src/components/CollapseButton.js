@@ -28,7 +28,8 @@ const ToggleButton = styled.div`
         border-bottom-width: 0;
         width:43px ;
         height: 23px;
-        border-radius: 3px 3px 0px 3px;
+        border-radius: 3px 3px 0px 0px;
+        margin-top: 0;
         
          & > svg {
             transform: rotate(${({collapsed}) => collapsed ? 180 : 360}deg);

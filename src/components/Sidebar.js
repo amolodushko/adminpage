@@ -7,13 +7,13 @@ import CollapseButton from "../components/CollapseButton";
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
-    width: ${({collapsed}) => !!collapsed ? 33 : 382}px;
-    overflow: auto;
+    width: ${({collapsed}) => !!collapsed ? 33 : 360}px;
+    overflow: hidden;
     transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
     @media (max-width: 600px) {
         width: auto;
         flex-direction: column;
-        min-height: ${({collapsed}) => !!collapsed ? 33 : 382}px;
+        max-height: ${({collapsed}) => !!collapsed ? 33 : 360}px;
     }     
 `;
 
@@ -25,6 +25,7 @@ const Panel = styled.div`
   background-color: rgba(237,240,245, 0.8);  
   flex-direction: column;
   transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  overflow: overlay;
 `;
 
 const Sidebar = () => {
